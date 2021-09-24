@@ -1,81 +1,113 @@
+//////HOME PAGE////////////
+
 // header 
+
 navItems.forEach((e) => {
-    e.addEventListener("mouseover", () => {
-        e.classList.add('active');
-    });
-    e.addEventListener("mouseout", () => {
-        e.classList.remove('active');
-    });
+
+  e.addEventListener("mouseover", () => {
+    e.classList.add('active');
+  });
+  e.addEventListener("mouseout", () => {
+    e.classList.remove('active');
+  });
 });
 
+btnDonors.addEventListener('click', () => {
+  location.href=('views/donors.html')
+});
+btnVolenteers.addEventListener('click', () => {
+  location.href=('views/volunteer.html')
+});
+btnGallery.addEventListener('click', () => {
+  location.href=('views/gallery.html')
+});
 // Slide
 
 let curSlide = 0;
 const maxSlide = slides.length;
 
 const createDots = function () {
-    slides.forEach(function (_, i) {
-        dotContainer.insertAdjacentHTML(
-            'beforeend',
-            `<button class="dots__dot" data-slide="${i}"></button>`
-        );
-    });
+  slides.forEach(function (_, i) {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
 };
 
 const activateDot = function (slide) {
-    document.querySelectorAll('.dots__dot')
-        .forEach(dot => dot.classList.remove('dots__dot--active'));
-    document.querySelector(`.dots__dot[data-slide="${slide}"]`)
-        .classList.add('dots__dot--active');
+  document.querySelectorAll('.dots__dot')
+    .forEach(dot => dot.classList.remove('dots__dot--active'));
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
 }
 const goToSlide = function (slide) {
-    slides.forEach(
-        (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-    );
+  slides.forEach(
+    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+  );
 };
 
 const nextSlide = function () {
-    if (curSlide === maxSlide - 1) {
-        curSlide = 0;
-    } else {
-        curSlide++;
-    }
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
 
-    goToSlide(curSlide);
-    activateDot(curSlide);
+  goToSlide(curSlide);
+  activateDot(curSlide);
 };
 
 const prevSlide = function () {
-    if (curSlide === 0) {
-      curSlide = maxSlide - 1;
-    } else {
-      curSlide--;
-    }
-    goToSlide(curSlide);
-    activateDot(curSlide);
-  };
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+  goToSlide(curSlide);
+  activateDot(curSlide);
+};
 
-  const init = function () {
-    goToSlide(0);
-    createDots();
+const init = function () {
+  goToSlide(0);
+  createDots();
 
-    activateDot(0);
-  };
-  init();
+  activateDot(0);
+};
+init();
 
-  // Event handlers
-  btnRight.addEventListener('click', nextSlide);
-  btnLeft.addEventListener('click', prevSlide);
+// Event handlers
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') prevSlide();
-    e.key === 'ArrowRight' && nextSlide();
-  });
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
 
-  dotContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('dots__dot')) {
-      const { slide } = e.target.dataset;
-      goToSlide(slide);
-      activateDot(slide);
-    }
-  });
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    const {
+      slide
+    } = e.target.dataset;
+    goToSlide(slide);
+    activateDot(slide);
+  }
+});
+
+//Top donors
+btnViewAllDonors.addEventListener('click', () => {
+  location.href = 'views/donors.html';
+  // window.open('views/donors.html')
+});
+
+//Top Volunteers
+btnViewAllVolenteers.addEventListener('click', () => {
+  location.href = 'views/volunteer.html'; 
+  // window.open('views/volunteer.html')
+});
+
+////////////HOME PAGE END////////////////////////
+
+
+/////// DONORS PAGE//////////////////
