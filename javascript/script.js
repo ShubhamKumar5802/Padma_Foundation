@@ -107,6 +107,12 @@ btnViewAllVolenteers.addEventListener('click', () => {
   // window.open('views/volunteer.html')
 });
 
+all__volunteerbtn.forEach((e)=>{
+  let num = e.getAttribute("card");
+  e.addEventListener('click', ()=>{
+    location.href =(`views/volunteer/${num}.html`);
+  });
+});
 ////////////HOME PAGE END////////////////////////
 
 

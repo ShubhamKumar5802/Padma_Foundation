@@ -22,3 +22,7 @@ const btnViewAllVolenteers = document.querySelector('#btnViewAllVolenteers');
 
 ///////////////HOME PAGE END/////////////////////////
 
+
+///////////voulentree//////////////////
+const all__volunteerbtn = document.querySelectorAll('.all__volunteerbtn');
+
