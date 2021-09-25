@@ -508,7 +508,6 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid var(--color-black);
   height: 33rem;
   width: 25rem;
-  background-image: url(/public/img/home/conclusion__group.jpg);
   background-size: cover; }
   .donors__card:hover {
     box-shadow: var(--shadow-dark); }
@@ -601,7 +600,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   padding-top: 3rem; }
   .donor__cards__card {
     display: inline-block;
